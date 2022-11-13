@@ -1,4 +1,5 @@
 const UserModel = require("../models/user.model");
+const logger = require("../utils/logger");
 
 const LocalStrategy = require("passport-local").Strategy;
 

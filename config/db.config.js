@@ -17,7 +17,7 @@ const connectionDatabase = () => {
   const db = mongoose.connection;
 
   // Bind connection to error event (to get notification of connection errors)
-  db.on("error", () => {
+  db.on("error", (err) => {
     logger.error(`MongoDB connection error: ${err}.\nExiting now...\n`);
     process.exit(1);
   });
