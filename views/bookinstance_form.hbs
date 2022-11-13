@@ -1,0 +1,71 @@
+{{>sidebar}}
+<div class="main-panel">
+    {{> nav}}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h3 class="card-title ">{{title}}</h3>
+                        </div>
+                        <div class="card-body">
+                            {{>messages}}
+                            <form action="{{action}}" method="post">
+                                <div class="form-group">
+                                    <label for="book" class="bmd-label-floating">Book</label>
+                                    <select id="book" name="book" class="custom-select custom-select">
+                                        {{#each books}}
+                                        {{#if ../bookinstance}}
+                                        <option value="{{_id}}" {{is_selected ../bookinstance.book _id}}>
+                                            {{title}}</option>
+                                        {{else}}
+                                        <option value="{{_id}}">
+                                            {{title}}</option>
+                                        {{/if}}
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="imprint" class="bmd-label-floating">Imprint</label>
+                                    <input type="text" class="form-control" value="{{bookinstance.imprint}}"
+                                        id="imprint" name="imprint" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="due_back">Date when book available</label>
+                                    {{#if bookinstance}}
+                                    <input type="date" class="form-control" value="{{bookinstance.due_back_yyyy_mm_dd}}"
+                                        id="due_back" name="due_back" required>
+                                    {{else}}
+                                    <input type="date" class="form-control" id="due_back" name="due_back" required>
+                                    {{/if}}
+                                </div>
+                                <div class="form-group">
+                                    <label for="status" class="bmd-label-floating">Status</label>
+                                    <select id="status" name="status" class="custom-select custom-select">
+                                        {{#each bookStatus}}
+                                        {{#if ../bookinstance}}
+                                        <option value="{{this}}" {{is_selected ../bookinstance.status this}}>
+                                            {{this}}</option>
+                                        {{else}}
+                                        <option value="{{this}}">
+                                            {{this}}</option>
+                                        {{/if}}
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div>
+                                    <div class="col-sm">
+                                        <button type="submit" class="btn btn-info float-right">{{title_button}}</button>
+                                        <a href="/admin/bookinstance" class="btn btn-danger float-right">Cancel</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> footer}}
+</div>

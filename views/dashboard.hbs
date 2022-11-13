@@ -1,0 +1,155 @@
+{{>sidebar}}
+<div class="main-panel">
+    {{> nav}}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats">
+                        <div class="card-header card-header-warning card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">book</i>
+                            </div>
+                            <p class="card-category">Books</p>
+                            <h3 class="card-title">{{data.book_count}}</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons">update</i> Last 24 Hours
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats">
+                        <div class="card-header card-header-info card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">folder_copy</i>
+                            </div>
+                            <p class="card-category">Coppies</p>
+                            <h3 class="card-title">{{data.book_instance_count}} book</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons">update</i> Last 1 Week
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats">
+                        <div class="card-header card-header-success card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">folder_copy</i>
+                            </div>
+                            <p class="card-category">Coppies available</p>
+                            <h3 class="card-title">{{data.book_instance_available_count}} book</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons">update</i> Last 24 Hours
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats">
+                        <div class="card-header card-header-primary card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">person4</i>
+                            </div>
+                            <p class="card-category">Authors</p>
+                            <h3 class="card-title">{{data.author_count}}</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons">update</i> Last 24 Hours
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats">
+                        <div class="card-header card-header-danger card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">category</i>
+                            </div>
+                            <p class="card-category">Genres</p>
+                            <h3 class="card-title">{{data.genre_count}}</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons">update</i> Last 24 Hours
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title">Book Instance Stats</h4>
+                            <p class="card-category">Top 4 available book instance</p>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                    <th>ID</th>
+                                    <th>Book</th>
+                                    <th>Imprint</th>
+                                    <th>Status</th>
+                                </thead>
+                                <tbody id="myTable">
+                                    {{#each data.book_instance_availables}}
+                                    <tr>
+                                        <td>{{@index}}</td>
+                                        <td>{{book.title}}</td>
+                                        <td>{{imprint}}</td>
+                                        <td><span class={{status_book status}}>{{status}}</span></td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title">Author Hot</h4>
+                            <p class="card-category">Top 4 hot author</p>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Date of birth -> Date of death</th>
+                                </thead>
+                                <tbody id="myTable">
+                                    {{#each data.authors}}
+                                    <tr>
+                                        <td>{{@index}}</td>
+                                        <td>{{name}}</td>
+                                        <td>{{#if date_of_birth_yyyy_mm_dd}}
+                                            {{date_of_birth_yyyy_mm_dd}}
+                                            {{else}}
+                                            -
+                                            {{/if}} -> {{#if date_of_death_yyyy_mm_dd}}
+                                            {{date_of_death_yyyy_mm_dd}}
+                                            {{else}}
+                                            -
+                                            {{/if}}</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> footer}}
+</div>

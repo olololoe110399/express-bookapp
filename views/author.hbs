@@ -1,0 +1,77 @@
+{{>sidebar}}
+<div class="main-panel">
+    {{> nav}}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title ">Authors</h4>
+                            <p class="card-category"> Here is a information Authors</p>
+                            <a href="/admin/author/create" class="btn btn-sm btn-success">Create</a>
+                        </div>
+                        <div class="card-body">
+                            {{>messages}}
+                            {{#if data}}
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-info">
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Date of birth
+                                        </th>
+                                        <th>
+                                            Date of death
+                                        </th>
+                                        <th>
+                                            Change
+                                        </th>
+                                    </thead>
+                                    <tbody id="myTable">
+                                        {{#each data}}
+                                        <tr>
+                                            <td>
+                                                {{name}}
+                                            </td>
+                                            <td>
+                                                {{#if date_of_birth_yyyy_mm_dd}}
+                                                {{date_of_birth_yyyy_mm_dd}}
+                                                {{else}}
+                                                -
+                                                {{/if}}
+                                            </td>
+                                            <td>
+                                                {{#if date_of_death_yyyy_mm_dd}}
+                                                {{date_of_death_yyyy_mm_dd}}
+                                                {{else}}
+                                                -
+                                                {{/if}}
+                                            </td>
+                                            <td>
+                                                <a href="/admin/author/{{_id}}"
+                                                    class="btn btn-sm btn-info product-edit">Edit</a>
+                                                <button id="delete-author" class="btn btn-sm btn-danger" value={{_id}}
+                                                    data-toggle="modal" data-target="#confirm-delete">Delete</button>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            {{else}}
+                            <p class="text-center">No author found. Go <a href="/admin/author/create">here</a> to add
+                                authors.</p>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{>modal}}
+        </div>
+    </div>
+    {{> footer}}
+</div>

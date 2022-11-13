@@ -1,0 +1,34 @@
+{{>sidebar}}
+<div class="main-panel">
+    {{> nav}}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h3 class="card-title ">{{title}}</h3>
+                        </div>
+                        <div class="card-body">
+                            {{>messages}}
+                            <form action="{{action}}" method="post">
+                                <div class="form-group">
+                                    <label for="name" class="bmd-label-floating">Name</label>
+                                    <input type="text" class="form-control" value="{{name}}" id="name"
+                                        name="name" required>
+                                </div>
+                                <div>
+                                    <div class="col-sm">
+                                        <button type="submit" class="btn btn-info float-right">{{title_button}}</button>
+                                        <a href="/admin/genre" class="btn btn-danger float-right">Cancel</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> footer}}
+</div>

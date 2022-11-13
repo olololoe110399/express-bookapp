@@ -1,0 +1,57 @@
+{{>sidebar}}
+<div class="main-panel">
+    {{> nav}}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title ">Genres</h4>
+                            <p class="card-category"> Here is a information Genres</p>
+                            <a href="/admin/genre/create" class="btn btn-sm btn-success">Create</a>
+                        </div>
+                        <div class="card-body">
+                            {{>messages}}
+                            {{#if data}}
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-info">
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Change
+                                        </th>
+                                    </thead>
+                                    <tbody id="myTable">
+                                        {{#each data}}
+                                        <tr>
+                                            <td>
+                                                {{name}}
+                                            </td>
+                                            <td>
+                                                <a href="/admin/genre/{{_id}}"
+                                                    class="btn btn-sm btn-info product-edit">Edit</a>
+                                                <button id="delete-genre" class="btn btn-sm btn-danger" value={{_id}}
+                                                    data-toggle="modal" data-target="#confirm-delete">Delete</button>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            {{else}}
+                            <p class="text-center">No genre found. Go <a href="/admin/genre/create">here</a> to add
+                                genres.</p>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{>modal}}
+        </div>
+    </div>
+    {{> footer}}
+</div>

@@ -1,0 +1,57 @@
+{{>sidebar}}
+<div class="main-panel">
+    {{> nav}}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title">Account</h4>
+                            <p class="card-category">Information</p>
+                        </div>
+                        <div class="card-body">
+                            {{>messages}}
+                            <form class="" method="POST" enctype="multipart/form-data">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Username</label>
+                                            <h4 class="card-title">{{data.username}}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-profile">
+                        <div class="card-avatar">
+                            <a href="javascript:;">
+                                <img class="img"
+                                    src="/images/new_logo.png" />
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-category text-gray">Fullstack Developer</h6>
+                            <h4 class="card-title">Nguyen Ngoc Duy</h4>
+                            <p class="card-description">
+                                My goal is to be a passionate inspiring and creative developer that will be able to
+                                invent and innovate; also share and
+                                teach others in a way that they can be excited like I am about programming. Last but not
+                                least be a competent
+                                freelancer.
+                            </p>
+                            <a href="https://www.facebook.com/profile.php?id=100012716881882"
+                                class="btn btn-info btn-round">Follow</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> footer}}
+</div>

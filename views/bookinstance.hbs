@@ -1,0 +1,83 @@
+{{>sidebar}}
+<div class="main-panel">
+    {{> nav}}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title ">Book Instances</h4>
+                            <p class="card-category"> Here is a information Book Instances</p>
+                            <a href="/admin/bookinstance/create" class="btn btn-sm btn-success">Create</a>
+                        </div>
+                        <div class="card-body">
+                            {{>messages}}
+                            {{#if data}}
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-info">
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Imprint
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>
+                                            Due
+                                        </th>
+                                        <th>
+                                            Change
+                                        </th>
+                                    </thead>
+                                    <tbody id="myTable">
+                                        {{#each data}}
+                                        <tr>
+                                            <td>
+                                                {{book.title}}
+                                            </td>
+                                            <td>
+
+                                                {{imprint}}
+                                            </td>
+                                            <td>
+                                                <span class={{status_book status}}>{{status}}</span>
+                                            </td>
+                                            <td>
+                                                {{#iff status "!=" 'Available'}}
+                                                {{../due_back_formatted}}
+                                                {{else}}
+                                                -
+                                                {{/iff}}
+                                            </td>
+
+                                            <td>
+                                                <a href="/admin/bookinstance/{{_id}}"
+                                                    class="btn btn-sm btn-info product-edit">Edit</a>
+                                                <button id="delete-bookinstance" class="btn btn-sm btn-danger"
+                                                    value={{_id}} data-toggle="modal"
+                                                    data-target="#confirm-delete">Delete</button>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            {{else}}
+                            <p class="text-center">No bookinstance found. Go <a
+                                    href="/admin/bookinstance/create">here</a> to add
+                                book instances.</p>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{>modal}}
+        </div>
+    </div>
+    {{> footer}}
+</div>

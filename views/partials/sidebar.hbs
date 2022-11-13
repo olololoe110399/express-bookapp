@@ -1,0 +1,67 @@
+<div class="sidebar" data-color="azure" data-background-color="white">
+    <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+    <div class="logo"><a href="/admin/profile" class="simple-text logo-normal">
+            {{#if this.user.image_path}}
+            <div class="row">
+                <div class="card card-profile">
+                    <div class="card-avatar2">
+                        <img class="-infoimg" src="/images/{{this.user.image_path}}" />
+                    </div>
+                    <h6 class="mt-3 card-category text-gray">{{this.user.full_name}}</h6>
+                </div>
+            </div>
+            {{else}}
+            <img class="rounded-circle" src="/images/new_logo.png" />
+            {{/if}}
+        </a></div>
+    <div class="sidebar-wrapper">
+        <ul class="nav">
+            <li class="nav-item {{active url 'dashboard'}} ">
+                <a class="nav-link" href="/admin/dashboard">
+                    <i class="material-icons">dashboard</i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <li class="nav-item {{active url 'author'}}">
+                <a class="nav-link" href="/admin/author">
+                    <i class="material-icons">person4</i>
+                    <p>Author</p>
+                </a>
+            </li>
+            <li class="nav-item {{active url 'genre'}}">
+                <a class="nav-link" href="/admin/genre">
+                    <i class="material-icons">category</i>
+                    <p>Genre</p>
+                </a>
+            </li>
+            <li class="nav-item {{active url 'book'}}">
+                <a class="nav-link" href="/admin/book">
+                    <i class="material-icons">book</i>
+                    <p>Book</p>
+                </a>
+            </li>
+            <li class="nav-item {{active url 'bookinstance'}}">
+                <a class="nav-link" href="/admin/bookinstance">
+                    <i class="material-icons">folder_copy</i>
+                    <p>Book Instance</p>
+                </a>
+            </li>
+            <li class="nav-item {{active url 'profile'}}">
+                <a class="nav-link" href="/admin/profile">
+                    <i class="material-icons">account_circle</i>
+                    <p>Profile</p>
+                </a>
+            </li>
+            <li class="nav-item {{active url 'map'}}">
+                <a class="nav-link" href="/admin/map">
+                    <i class="material-icons">location_ons</i>
+                    <p>Map</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
