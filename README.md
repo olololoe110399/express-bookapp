@@ -52,6 +52,7 @@ yarn run:dev
 
 ### Structure
 
+```
 ├───── bin
 ├─────config
 │     ├───── base.config.js
@@ -109,6 +110,7 @@ yarn run:dev
 ├───── package.json
 ├───── populatedb.js
 ├───── yarn.lock
+```
 
 #### Script generate database
 
