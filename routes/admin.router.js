@@ -14,8 +14,8 @@ module.exports = (passport) => {
   router.get("/dashboard", isLoggedIn, AdminController.dashboard);
 
   router
-    .post("/sign_in", AdminController.postSignIn(passport))
-    .get("/sign_in", AdminController.getSignIn);
+    .post("/sign_in", isLoggedOut, AdminController.postSignIn(passport))
+    .get("/sign_in", isLoggedOut, AdminController.getSignIn);
 
   router
     .post("/sign_up", AdminController.postSignUp(passport))
@@ -46,4 +46,11 @@ const isLoggedIn = (req, res, next) => {
   }
   req.flash("error_msg", "Please login to view that resource");
   res.redirect("/admin/sign_in");
+};
+
+const isLoggedOut = (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/admin/dashboard");
 };
