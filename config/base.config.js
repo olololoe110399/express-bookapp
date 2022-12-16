@@ -5,7 +5,7 @@ const views = path.join(projectRootPath, "views");
 
 let config = {
   port: process.env.PORT || 3000,
-  dbUrl: process.env.DB_URL || "mongodb://localhost/test-db",
+  dbUrl: process.env.MONGODB_URL || "mongodb://localhost/test-db",
   env: process.env.NODE_ENV || "development",
   projectRootPath,
   hbs: {
@@ -14,7 +14,7 @@ let config = {
     views,
   },
   staticDir: path.join(projectRootPath, "public"),
-  secretKey: process.env.SECRET_KEY,
+  secretKey: process.env.SECRET_KEY || "my_secret_key",
   maxAge: 2 * 24 * 60 * 60, // 2 day
   // maxAge: 60, // 1'
   numberOfroundsSalt: 10,

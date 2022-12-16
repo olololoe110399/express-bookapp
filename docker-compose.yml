@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  app:
+    build: ./
+    ports:
+      - "${PORT}:${PORT}"
+    image: duynn100198/library-local
+    volumes:
+      - ./:/app 
+      - /app/node_modules
+    env_file:
+      - .env

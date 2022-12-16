@@ -1,0 +1,12 @@
+Build app docker image
+docker-compose build 
+docker images
+# REPOSITORY                                   TAG       IMAGE ID       CREATED          SIZE
+# duynn100198/library_local   latest    e2e2b6a39e0f   50 seconds ago   165MB
+
+Run the app image in a container
+docker run --name library-local-app -it -d -p 3000:3000 duynn100198/library-local
+Open url: http://localhost:3000/
+docker ps
+CONTAINER ID   IMAGE                                    COMMAND                  CREATED              STATUS              PORTS                    NAMES
+2a10ede4a47e   duynn100198/github-action-example-node   "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:3000->3000/tcp   nodejs-app-demo
