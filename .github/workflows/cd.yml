@@ -85,7 +85,7 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v2
-      # more info on deploy to heroku: 
+      # more info on deploy to railway: 
       - name: setup node
         uses: actions/setup-node@master
         with:
